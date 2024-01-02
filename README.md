@@ -1,2 +1,1 @@
-# SC Scroll Animation
-# sc-scroll-animations
+# SC Scroll Animations

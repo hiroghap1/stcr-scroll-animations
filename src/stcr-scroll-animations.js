@@ -6,14 +6,14 @@ const { createHigherOrderComponent } = wp.compose;
 const { Fragment } = wp.element;
 
 const animations = [
-    { label: 'フェードイン', value: 'fadeIn', imageUrl: '/wp-content/plugins/sc-scroll-animations/images/blur.jpg' },
-    { label: 'バウンス', value: 'Bounce', imageUrl: '/wp-content/plugins/sc-scroll-animations/images/bounce.jpg' },
-    { label: 'グライド', value: 'Glide', imageUrl: '/wp-content/plugins/sc-scroll-animations/images/glide.jpg' },
-    { label: 'スピン', value: 'Spin', imageUrl: '/wp-content/plugins/sc-scroll-animations/images/spin.jpg' },
-    { label: 'フロート', value: 'Float', imageUrl: '/wp-content/plugins/sc-scroll-animations/images/float.jpg' },
-    { label: 'ズーム', value: 'Zoom', imageUrl: '/wp-content/plugins/sc-scroll-animations/images/zoom.jpg' },
-    { label: 'フリップ', value: 'Flip', imageUrl: '/wp-content/plugins/sc-scroll-animations/images/flip.jpg' },
-    { label: 'スライド', value: 'Slide', imageUrl: '/wp-content/plugins/sc-scroll-animations/images/slide.jpg' },
+    { label: 'フェードイン', value: 'fadeIn', imageUrl: '/wp-content/plugins/stcr-scroll-animations/images/blur.jpg' },
+    { label: 'バウンス', value: 'Bounce', imageUrl: '/wp-content/plugins/stcr-scroll-animations/images/bounce.jpg' },
+    { label: 'グライド', value: 'Glide', imageUrl: '/wp-content/plugins/stcr-scroll-animations/images/glide.jpg' },
+    { label: 'スピン', value: 'Spin', imageUrl: '/wp-content/plugins/stcr-scroll-animations/images/spin.jpg' },
+    { label: 'フロート', value: 'Float', imageUrl: '/wp-content/plugins/stcr-scroll-animations/images/float.jpg' },
+    { label: 'ズーム', value: 'Zoom', imageUrl: '/wp-content/plugins/stcr-scroll-animations/images/zoom.jpg' },
+    { label: 'フリップ', value: 'Flip', imageUrl: '/wp-content/plugins/stcr-scroll-animations/images/flip.jpg' },
+    { label: 'スライド', value: 'Slide', imageUrl: '/wp-content/plugins/stcr-scroll-animations/images/slide.jpg' },
 ];
 
 const scrollAnimationControls = wp.compose.createHigherOrderComponent(function(BlockEdit){
@@ -101,4 +101,4 @@ const scrollAnimationControls = wp.compose.createHigherOrderComponent(function(B
         );
     };
 }, 'scrollAnimationControls');
-wp.hooks.addFilter('editor.BlockEdit', 'sc-scroll-animations/add-scroll-animations', scrollAnimationControls);
+wp.hooks.addFilter('editor.BlockEdit', 'stcr-scroll-animations/add-scroll-animations', scrollAnimationControls);

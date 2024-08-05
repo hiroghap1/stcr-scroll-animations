@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Sc Scroll Animations
+ * Plugin Name:       Stcr Scroll Animations
  * Description:       Example block scaffolded with Create Block tool.
  * Requires at least: 6.1
  * Requires PHP:      7.0
@@ -8,7 +8,7 @@
  * Author:            The WordPress Contributors
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       sc-scroll-animations
+ * Text Domain:       stcr-scroll-animations
  *
  * @package           create-block
  */
@@ -24,10 +24,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
-function sc_scroll_animations_sc_scroll_animations_block_init() {
+function stcr_scroll_animations_block_init() {
 	register_block_type( __DIR__ . '/build' );
 }
-add_action( 'init', 'sc_scroll_animations_sc_scroll_animations_block_init' );
+add_action( 'init', 'stcr_scroll_animations_block_init' );
 
 //function enqueue_custom_options_script()
 //{

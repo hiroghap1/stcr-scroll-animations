@@ -33,8 +33,8 @@ export default function Edit() {
 	return (
 		<p { ...useBlockProps() }>
 			{ __(
-				'Sc Scroll Animations – hello from the editor!',
-				'sc-scroll-animations'
+				'Stcr Scroll Animations – hello from the editor!',
+				'stcr-scroll-animations'
 			) }
 		</p>
 	);

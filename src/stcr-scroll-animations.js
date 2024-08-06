@@ -1,4 +1,4 @@
-// sc-scroll-animations.js
+// stcr-scroll-animations.js
 
 const { registerBlockType } = wp.blocks;
 const { TextControl, PanelBody, InspectorControls, SelectControl } = wp.components;
@@ -33,7 +33,7 @@ const scrollAnimationControls = wp.compose.createHigherOrderComponent(function(B
         const controlButtons = wp.element.createElement(
             wp.components.PanelBody,
             {
-                title: 'SC Scroll Animations',
+                title: 'STCR Scroll Animations',
             },
             wp.element.createElement(
                 wp.components.BaseControl,

@@ -1,1 +1,528 @@
-(()=>{var e,l={250:(e,l,n)=>{"use strict";const t=window.wp.blocks,o=window.React,a=window.wp.i18n,i=window.wp.blockEditor,r=JSON.parse('{"u2":"create-block/sc-scroll-animations"}');n(922),(0,t.registerBlockType)(r.u2,{edit:function(){return(0,o.createElement)("p",{...(0,i.useBlockProps)()},(0,a.__)("Sc Scroll Animations – hello from the editor!","sc-scroll-animations"))},save:function(){return(0,o.createElement)("p",{...i.useBlockProps.save()},"Sc Scroll Animations – hello from the saved content!")}})},922:()=>{const{registerBlockType:e}=wp.blocks,{TextControl:l,PanelBody:n,InspectorControls:t,SelectControl:o}=wp.components,{createHigherOrderComponent:a}=wp.compose,{Fragment:i}=wp.element,r=[{label:"フェードイン",value:"fadeIn",imageUrl:"/wp-content/plugins/sc-scroll-animations/images/blur.jpg"},{label:"バウンス",value:"Bounce",imageUrl:"/wp-content/plugins/sc-scroll-animations/images/bounce.jpg"},{label:"グライド",value:"Glide",imageUrl:"/wp-content/plugins/sc-scroll-animations/images/glide.jpg"},{label:"スピン",value:"Spin",imageUrl:"/wp-content/plugins/sc-scroll-animations/images/spin.jpg"},{label:"フロート",value:"Float",imageUrl:"/wp-content/plugins/sc-scroll-animations/images/float.jpg"},{label:"ズーム",value:"Zoom",imageUrl:"/wp-content/plugins/sc-scroll-animations/images/zoom.jpg"},{label:"フリップ",value:"Flip",imageUrl:"/wp-content/plugins/sc-scroll-animations/images/flip.jpg"},{label:"スライド",value:"Slide",imageUrl:"/wp-content/plugins/sc-scroll-animations/images/slide.jpg"}],s=wp.compose.createHigherOrderComponent((function(e){return function(l){const{attributes:n,setAttributes:t}=l,o=wp.element.createElement(wp.components.PanelBody,{title:"SC Scroll Animations"},wp.element.createElement(wp.components.BaseControl,{label:"アニメーションの種類を選択してください。"},wp.element.createElement(wp.components.ButtonGroup,{style:{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:"10px"}},r.map((e=>wp.element.createElement(wp.components.Button,{key:e.value,value:e.value,isSmall:!0,onClick:()=>{return l=e.value,void t({animationType:l});var l},isPrimary:n.animationType===e.value,style:{height:"auto",padding:"0",flexDirection:"column",boxShadow:"none"}},wp.element.createElement("img",{src:e.imageUrl,alt:e.label,style:{maxWidth:"100%",height:"auto",display:"block"}}),wp.element.createElement("span",{style:{display:"block"}},e.label)))))));return wp.element.createElement(wp.element.Fragment,{},wp.element.createElement(e,l),wp.element.createElement(wp.blockEditor.InspectorControls,{initialOpen:!1},o))}}),"scrollAnimationControls");wp.hooks.addFilter("editor.BlockEdit","sc-scroll-animations/add-scroll-animations",s)}},n={};function t(e){var o=n[e];if(void 0!==o)return o.exports;var a=n[e]={exports:{}};return l[e](a,a.exports,t),a.exports}t.m=l,e=[],t.O=(l,n,o,a)=>{if(!n){var i=1/0;for(p=0;p<e.length;p++){for(var[n,o,a]=e[p],r=!0,s=0;s<n.length;s++)(!1&a||i>=a)&&Object.keys(t.O).every((e=>t.O[e](n[s])))?n.splice(s--,1):(r=!1,a<i&&(i=a));if(r){e.splice(p--,1);var c=o();void 0!==c&&(l=c)}}return l}a=a||0;for(var p=e.length;p>0&&e[p-1][2]>a;p--)e[p]=e[p-1];e[p]=[n,o,a]},t.o=(e,l)=>Object.prototype.hasOwnProperty.call(e,l),(()=>{var e={826:0,431:0};t.O.j=l=>0===e[l];var l=(l,n)=>{var o,a,[i,r,s]=n,c=0;if(i.some((l=>0!==e[l]))){for(o in r)t.o(r,o)&&(t.m[o]=r[o]);if(s)var p=s(t)}for(l&&l(n);c<i.length;c++)a=i[c],t.o(e,a)&&e[a]&&e[a][0](),e[a]=0;return t.O(p)},n=globalThis.webpackChunksc_scroll_animations=globalThis.webpackChunksc_scroll_animations||[];n.forEach(l.bind(null,0)),n.push=l.bind(null,n.push.bind(n))})();var o=t.O(void 0,[431],(()=>t(250)));o=t.O(o)})();
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/edit.js":
+/*!*********************!*\
+  !*** ./src/edit.js ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Edit)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./src/editor.scss");
+
+/**
+ * Retrieves the translation of text.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
+ */
+
+
+/**
+ * React hook that is used to mark the block wrapper element.
+ * It provides all the necessary props like the class name.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
+ */
+
+
+/**
+ * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
+ * Those files can contain any CSS code that gets applied to the editor.
+ *
+ * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
+ */
+
+
+/**
+ * The edit function describes the structure of your block in the context of the
+ * editor. This represents what the editor will render when the block is used.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
+ *
+ * @return {Element} Element to render.
+ */
+function Edit() {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Stcr Scroll Animations – hello from the editor!', 'stcr-scroll-animations'));
+}
+
+/***/ }),
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/style.scss");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./src/edit.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./save */ "./src/save.js");
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./block.json */ "./src/block.json");
+/* harmony import */ var _stcr_scroll_animations__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./stcr-scroll-animations */ "./src/stcr-scroll-animations.js");
+/* harmony import */ var _stcr_scroll_animations__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_stcr_scroll_animations__WEBPACK_IMPORTED_MODULE_5__);
+/**
+ * Registers a new block provided a unique name and an object defining its behavior.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
+ */
+
+
+/**
+ * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
+ * All files containing `style` keyword are bundled together. The code used
+ * gets applied both to the front of your site and to the editor.
+ *
+ * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
+ */
+
+
+/**
+ * Internal dependencies
+ */
+
+
+
+
+
+/**
+ * Every block starts by registering a new block type definition.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
+ */
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_4__.name, {
+  /**
+   * @see ./edit.js
+   */
+  edit: _edit__WEBPACK_IMPORTED_MODULE_2__["default"],
+  /**
+   * @see ./save.js
+   */
+  save: _save__WEBPACK_IMPORTED_MODULE_3__["default"]
+});
+
+/***/ }),
+
+/***/ "./src/save.js":
+/*!*********************!*\
+  !*** ./src/save.js ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ save)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+
+/**
+ * React hook that is used to mark the block wrapper element.
+ * It provides all the necessary props like the class name.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
+ */
+
+
+/**
+ * The save function defines the way in which the different attributes should
+ * be combined into the final markup, which is then serialized by the block
+ * editor into `post_content`.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#save
+ *
+ * @return {Element} Element to render.
+ */
+function save() {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save()
+  }, 'Sc Scroll Animations – hello from the saved content!');
+}
+
+/***/ }),
+
+/***/ "./src/stcr-scroll-animations.js":
+/*!***************************************!*\
+  !*** ./src/stcr-scroll-animations.js ***!
+  \***************************************/
+/***/ (() => {
+
+// stcr-scroll-animations.js
+
+const {
+  registerBlockType
+} = wp.blocks;
+const {
+  TextControl,
+  PanelBody,
+  InspectorControls,
+  SelectControl
+} = wp.components;
+const {
+  createHigherOrderComponent
+} = wp.compose;
+const {
+  Fragment
+} = wp.element;
+const animations = [{
+  label: 'フェードイン',
+  value: 'fadeIn',
+  imageUrl: '/wp-content/plugins/stcr-scroll-animations/images/blur.jpg'
+}, {
+  label: 'バウンス',
+  value: 'Bounce',
+  imageUrl: '/wp-content/plugins/stcr-scroll-animations/images/bounce.jpg'
+}, {
+  label: 'グライド',
+  value: 'Glide',
+  imageUrl: '/wp-content/plugins/stcr-scroll-animations/images/glide.jpg'
+}, {
+  label: 'スピン',
+  value: 'Spin',
+  imageUrl: '/wp-content/plugins/stcr-scroll-animations/images/spin.jpg'
+}, {
+  label: 'フロート',
+  value: 'Float',
+  imageUrl: '/wp-content/plugins/stcr-scroll-animations/images/float.jpg'
+}, {
+  label: 'ズーム',
+  value: 'Zoom',
+  imageUrl: '/wp-content/plugins/stcr-scroll-animations/images/zoom.jpg'
+}, {
+  label: 'フリップ',
+  value: 'Flip',
+  imageUrl: '/wp-content/plugins/stcr-scroll-animations/images/flip.jpg'
+}, {
+  label: 'スライド',
+  value: 'Slide',
+  imageUrl: '/wp-content/plugins/stcr-scroll-animations/images/slide.jpg'
+}];
+const scrollAnimationControls = wp.compose.createHigherOrderComponent(function (BlockEdit) {
+  return function (props) {
+    const {
+      attributes,
+      setAttributes
+    } = props;
+    const onSelectAnimation = selectedAnimation => {
+      // Handle the selected animation
+      setAttributes({
+        animationType: selectedAnimation
+      });
+    };
+    const onSelectSpeed = selectedSpeed => {
+      // Handle the selected speed
+      setAttributes({
+        animationSpeed: selectedSpeed
+      });
+    };
+    const controlButtons = wp.element.createElement(wp.components.PanelBody, {
+      title: 'STCR Scroll Animations'
+    }, wp.element.createElement(wp.components.BaseControl, {
+      label: 'アニメーションの種類を選択してください。'
+    }, wp.element.createElement(wp.components.ButtonGroup, {
+      style: {
+        display: 'grid',
+        gridTemplateColumns: 'repeat(3,1fr)',
+        gap: '10px'
+      }
+    }, animations.map(animation => wp.element.createElement(wp.components.Button, {
+      key: animation.value,
+      value: animation.value,
+      isSmall: true,
+      onClick: () => onSelectAnimation(animation.value),
+      isPrimary: attributes.animationType === animation.value,
+      style: {
+        height: 'auto',
+        // 正方形に調整
+        padding: '0',
+        // パディングをリセット
+        flexDirection: 'column',
+        boxShadow: 'none'
+      }
+    }, wp.element.createElement('img', {
+      src: animation.imageUrl,
+      alt: animation.label,
+      style: {
+        maxWidth: '100%',
+        height: 'auto',
+        display: 'block'
+      }
+    }), wp.element.createElement('span', {
+      style: {
+        display: 'block'
+      }
+    }, animation.label))))));
+    return wp.element.createElement(wp.element.Fragment, {}, wp.element.createElement(BlockEdit, props), wp.element.createElement(wp.blockEditor.InspectorControls, {
+      initialOpen: false
+    }, controlButtons));
+  };
+}, 'scrollAnimationControls');
+wp.hooks.addFilter('editor.BlockEdit', 'stcr-scroll-animations/add-scroll-animations', scrollAnimationControls);
+
+/***/ }),
+
+/***/ "./src/editor.scss":
+/*!*************************!*\
+  !*** ./src/editor.scss ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/style.scss":
+/*!************************!*\
+  !*** ./src/style.scss ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "react":
+/*!************************!*\
+  !*** external "React" ***!
+  \************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = window["React"];
+
+/***/ }),
+
+/***/ "@wordpress/block-editor":
+/*!*************************************!*\
+  !*** external ["wp","blockEditor"] ***!
+  \*************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = window["wp"]["blockEditor"];
+
+/***/ }),
+
+/***/ "@wordpress/blocks":
+/*!********************************!*\
+  !*** external ["wp","blocks"] ***!
+  \********************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = window["wp"]["blocks"];
+
+/***/ }),
+
+/***/ "@wordpress/i18n":
+/*!******************************!*\
+  !*** external ["wp","i18n"] ***!
+  \******************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = window["wp"]["i18n"];
+
+/***/ }),
+
+/***/ "./src/block.json":
+/*!************************!*\
+  !*** ./src/block.json ***!
+  \************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/sc-scroll-animations","version":"0.1.0","title":"Sc Scroll Animations","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false},"textdomain":"sc-scroll-animations","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var [chunkIds, fn, priority] = deferred[i];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"index": 0,
+/******/ 			"./style-index": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = globalThis["webpackChunkstcr_scroll_animations"] = globalThis["webpackChunkstcr_scroll_animations"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["./style-index"], () => (__webpack_require__("./src/index.js")))
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	
+/******/ })()
+;
+//# sourceMappingURL=index.js.map

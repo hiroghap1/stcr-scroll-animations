@@ -1,1 +1,372 @@
-(()=>{"use strict";var e,t={916:()=>{const e=window.React,t=window.wp.hooks,l=window.wp.compose,a=window.wp.blockEditor,i=window.wp.components,n=[{label:"フェードイン",value:"fadeIn",imageUrl:"/wp-content/plugins/your-plugin/images/blur.jpg"},{label:"バウンス",value:"bounce",imageUrl:"/wp-content/plugins/your-plugin/images/bounce.jpg"},{label:"グライド",value:"glide",imageUrl:"/wp-content/plugins/your-plugin/images/glide.jpg"},{label:"スピン",value:"spin",imageUrl:"/wp-content/plugins/your-plugin/images/spin.jpg"},{label:"フロート",value:"float",imageUrl:"/wp-content/plugins/your-plugin/images/float.jpg"},{label:"ズーム",value:"zoom",imageUrl:"/wp-content/plugins/your-plugin/images/zoom.jpg"},{label:"フリップ",value:"flip",imageUrl:"/wp-content/plugins/your-plugin/images/flip.jpg"},{label:"スライド",value:"slide",imageUrl:"/wp-content/plugins/your-plugin/images/slide.jpg"}];(0,t.addFilter)("blocks.registerBlockType","all-blocks-animations/attribute",(e=>(void 0!==e.attributes&&(e.attributes={...e.attributes,animationType:{type:"string",default:""}}),e)));const r=(0,l.createHigherOrderComponent)((t=>l=>{const{attributes:r,setAttributes:o}=l,{animationType:s}=r;return(0,e.createElement)(e.Fragment,null,(0,e.createElement)(t,{...l}),(0,e.createElement)(a.InspectorControls,null,(0,e.createElement)(i.PanelBody,{title:"アニメーション設定"},(0,e.createElement)(i.BaseControl,{label:"アニメーションの種類を選択してください。"},(0,e.createElement)("div",{style:{display:"grid",gridTemplateColumns:"repeat(3, 1fr)",gap:"10px"}},n.map((t=>(0,e.createElement)(i.Button,{key:t.value,onClick:()=>{return e=t.value,void o({animationType:e});var e},isPrimary:s===t.value,style:{padding:0,border:s===t.value?"2px solid blue":"2px solid transparent"}},(0,e.createElement)("img",{src:t.imageUrl,alt:t.label,style:{width:"100%",height:"auto"}})))))))))}),"addAnimationControl");(0,t.addFilter)("editor.BlockEdit","all-blocks-animations/inspector",r),(0,t.addFilter)("blocks.getSaveContent.extraProps","all-blocks-animations/save-props",((e,t,l)=>(l.animationType&&(e["data-stcr-animation-type"]=l.animationType),e)))}},l={};function a(e){var i=l[e];if(void 0!==i)return i.exports;var n=l[e]={exports:{}};return t[e](n,n.exports,a),n.exports}a.m=t,e=[],a.O=(t,l,i,n)=>{if(!l){var r=1/0;for(u=0;u<e.length;u++){for(var[l,i,n]=e[u],o=!0,s=0;s<l.length;s++)(!1&n||r>=n)&&Object.keys(a.O).every((e=>a.O[e](l[s])))?l.splice(s--,1):(o=!1,n<r&&(r=n));if(o){e.splice(u--,1);var p=i();void 0!==p&&(t=p)}}return t}n=n||0;for(var u=e.length;u>0&&e[u-1][2]>n;u--)e[u]=e[u-1];e[u]=[l,i,n]},a.o=(e,t)=>Object.prototype.hasOwnProperty.call(e,t),(()=>{var e={826:0,431:0};a.O.j=t=>0===e[t];var t=(t,l)=>{var i,n,[r,o,s]=l,p=0;if(r.some((t=>0!==e[t]))){for(i in o)a.o(o,i)&&(a.m[i]=o[i]);if(s)var u=s(a)}for(t&&t(l);p<r.length;p++)n=r[p],a.o(e,n)&&e[n]&&e[n][0](),e[n]=0;return a.O(u)},l=globalThis.webpackChunkstcr_scroll_animations=globalThis.webpackChunkstcr_scroll_animations||[];l.forEach(t.bind(null,0)),l.push=t.bind(null,l.push.bind(l))})();var i=a.O(void 0,[431],(()=>a(916)));i=a.O(i)})();
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/hooks */ "@wordpress/hooks");
+/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_hooks__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/compose */ "@wordpress/compose");
+/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_compose__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./style.scss */ "./src/style.scss");
+
+
+
+
+
+
+
+// アニメーションのオプションと画像
+const animations = [{
+  label: 'フェードイン',
+  value: 'fadeIn',
+  imageUrl: '/wp-content/plugins/stcr-scroll-animations/images/blur.jpg'
+}, {
+  label: 'バウンス',
+  value: 'bounce',
+  imageUrl: '/wp-content/plugins/stcr-scroll-animations/images/bounce.jpg'
+}, {
+  label: 'グライド',
+  value: 'glide',
+  imageUrl: '/wp-content/plugins/stcr-scroll-animations/images/glide.jpg'
+}, {
+  label: 'スピン',
+  value: 'spin',
+  imageUrl: '/wp-content/plugins/stcr-scroll-animations/images/spin.jpg'
+}, {
+  label: 'フロート',
+  value: 'float',
+  imageUrl: '/wp-content/plugins/stcr-scroll-animations/images/float.jpg'
+}, {
+  label: 'ズーム',
+  value: 'zoom',
+  imageUrl: '/wp-content/plugins/stcr-scroll-animations/images/zoom.jpg'
+}, {
+  label: 'フリップ',
+  value: 'flip',
+  imageUrl: '/wp-content/plugins/stcr-scroll-animations/images/flip.jpg'
+}, {
+  label: 'スライド',
+  value: 'slide',
+  imageUrl: '/wp-content/plugins/stcr-scroll-animations/images/slide.jpg'
+}];
+
+// ブロック属性にアニメーション属性を追加
+const addAnimationAttribute = settings => {
+  if (typeof settings.attributes !== 'undefined') {
+    settings.attributes = {
+      ...settings.attributes,
+      animationType: {
+        type: 'string',
+        default: ''
+      }
+    };
+  }
+  return settings;
+};
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_1__.addFilter)('blocks.registerBlockType', 'all-blocks-animations/attribute', addAnimationAttribute);
+
+// インスペクタコントロールにアニメーション選択を追加
+const addAnimationControl = (0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_2__.createHigherOrderComponent)(BlockEdit => {
+  return props => {
+    const {
+      attributes,
+      setAttributes
+    } = props;
+    const {
+      animationType
+    } = attributes;
+    const onSelectAnimation = value => {
+      setAttributes({
+        animationType: value
+      });
+    };
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(BlockEdit, {
+      ...props
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+      title: "\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3\u8A2D\u5B9A"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.BaseControl, {
+      label: "\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3\u306E\u7A2E\u985E\u3092\u9078\u629E\u3057\u3066\u304F\u3060\u3055\u3044\u3002"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      style: {
+        display: 'grid',
+        gridTemplateColumns: 'repeat(3, 1fr)',
+        gap: '10px'
+      }
+    }, animations.map(animation => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
+      key: animation.value,
+      onClick: () => onSelectAnimation(animation.value),
+      isPrimary: animationType === animation.value,
+      style: {
+        padding: 0,
+        height: 'auto',
+        flexDirection: 'column',
+        border: animationType === animation.value ? '2px solid blue' : '2px solid transparent'
+      }
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      src: animation.imageUrl,
+      alt: animation.label,
+      style: {
+        width: '100%',
+        height: 'auto'
+      }
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      style: {
+        fontSize: '12px'
+      }
+    }, animation.label))))))));
+  };
+}, 'addAnimationControl');
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_1__.addFilter)('editor.BlockEdit', 'all-blocks-animations/inspector', addAnimationControl);
+
+// 保存時にアニメーション属性をデータ属性として追加
+const addSaveProps = (extraProps, blockType, attributes) => {
+  if (attributes.animationType) {
+    extraProps['data-stcr-animation-type'] = attributes.animationType;
+  }
+  return extraProps;
+};
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_1__.addFilter)('blocks.getSaveContent.extraProps', 'all-blocks-animations/save-props', addSaveProps);
+
+/***/ }),
+
+/***/ "./src/style.scss":
+/*!************************!*\
+  !*** ./src/style.scss ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "react":
+/*!************************!*\
+  !*** external "React" ***!
+  \************************/
+/***/ ((module) => {
+
+module.exports = window["React"];
+
+/***/ }),
+
+/***/ "@wordpress/block-editor":
+/*!*************************************!*\
+  !*** external ["wp","blockEditor"] ***!
+  \*************************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["blockEditor"];
+
+/***/ }),
+
+/***/ "@wordpress/components":
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["components"];
+
+/***/ }),
+
+/***/ "@wordpress/compose":
+/*!*********************************!*\
+  !*** external ["wp","compose"] ***!
+  \*********************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["compose"];
+
+/***/ }),
+
+/***/ "@wordpress/hooks":
+/*!*******************************!*\
+  !*** external ["wp","hooks"] ***!
+  \*******************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["hooks"];
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var [chunkIds, fn, priority] = deferred[i];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"index": 0,
+/******/ 			"./style-index": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = globalThis["webpackChunkstcr_scroll_animations"] = globalThis["webpackChunkstcr_scroll_animations"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["./style-index"], () => (__webpack_require__("./src/index.js")))
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	
+/******/ })()
+;
+//# sourceMappingURL=index.js.map

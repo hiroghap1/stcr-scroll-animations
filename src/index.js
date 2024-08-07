@@ -6,14 +6,14 @@ import './style.scss';
 
 // アニメーションのオプションと画像
 const animations = [
-	{ label: 'フェードイン', value: 'fadeIn', imageUrl: '/wp-content/plugins/your-plugin/images/blur.jpg' },
-	{ label: 'バウンス', value: 'bounce', imageUrl: '/wp-content/plugins/your-plugin/images/bounce.jpg' },
-	{ label: 'グライド', value: 'glide', imageUrl: '/wp-content/plugins/your-plugin/images/glide.jpg' },
-	{ label: 'スピン', value: 'spin', imageUrl: '/wp-content/plugins/your-plugin/images/spin.jpg' },
-	{ label: 'フロート', value: 'float', imageUrl: '/wp-content/plugins/your-plugin/images/float.jpg' },
-	{ label: 'ズーム', value: 'zoom', imageUrl: '/wp-content/plugins/your-plugin/images/zoom.jpg' },
-	{ label: 'フリップ', value: 'flip', imageUrl: '/wp-content/plugins/your-plugin/images/flip.jpg' },
-	{ label: 'スライド', value: 'slide', imageUrl: '/wp-content/plugins/your-plugin/images/slide.jpg' },
+	{ label: 'フェードイン', value: 'fadeIn', imageUrl: '/wp-content/plugins/stcr-scroll-animations/images/blur.jpg' },
+	{ label: 'バウンス', value: 'bounce', imageUrl: '/wp-content/plugins/stcr-scroll-animations/images/bounce.jpg' },
+	{ label: 'グライド', value: 'glide', imageUrl: '/wp-content/plugins/stcr-scroll-animations/images/glide.jpg' },
+	{ label: 'スピン', value: 'spin', imageUrl: '/wp-content/plugins/stcr-scroll-animations/images/spin.jpg' },
+	{ label: 'フロート', value: 'float', imageUrl: '/wp-content/plugins/stcr-scroll-animations/images/float.jpg' },
+	{ label: 'ズーム', value: 'zoom', imageUrl: '/wp-content/plugins/stcr-scroll-animations/images/zoom.jpg' },
+	{ label: 'フリップ', value: 'flip', imageUrl: '/wp-content/plugins/stcr-scroll-animations/images/flip.jpg' },
+	{ label: 'スライド', value: 'slide', imageUrl: '/wp-content/plugins/stcr-scroll-animations/images/slide.jpg' },
 ];
 
 // ブロック属性にアニメーション属性を追加
@@ -53,9 +53,10 @@ const addAnimationControl = createHigherOrderComponent((BlockEdit) => {
 										key={animation.value}
 										onClick={() => onSelectAnimation(animation.value)}
 										isPrimary={animationType === animation.value}
-										style={{ padding: 0, border: animationType === animation.value ? '2px solid blue' : '2px solid transparent' }}
+										style={{ padding: 0, height: 'auto', flexDirection: 'column', border: animationType === animation.value ? '2px solid blue' : '2px solid transparent' }}
 									>
 										<img src={animation.imageUrl} alt={animation.label} style={{ width: '100%', height: 'auto' }} />
+										<span style={{ fontSize: '12px'}}>{animation.label}</span>
 									</Button>
 								))}
 							</div>

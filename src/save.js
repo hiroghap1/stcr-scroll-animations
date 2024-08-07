@@ -15,9 +15,11 @@ import { useBlockProps } from '@wordpress/block-editor';
  *
  * @return {Element} Element to render.
  */
-export default function save() {
+export default function save({ attributes }) {
+	const { animationType } = attributes;
+
 	return (
-		<p { ...useBlockProps.save() }>
+		<p { ...useBlockProps.save() } data-stcrsc-name={animationType}>
 			{ 'Sc Scroll Animations – hello from the saved content!' }
 		</p>
 	);

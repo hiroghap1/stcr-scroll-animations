@@ -1,9 +1,9 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "create-block/sc-scroll-animations",
+	"name": "create-block/stcr-scroll-animations",
 	"version": "0.1.0",
-	"title": "Sc Scroll Animations",
+	"title": "STCR Scroll Animations",
 	"category": "widgets",
 	"icon": "smiley",
 	"description": "Example block scaffolded with Create Block tool.",
@@ -11,7 +11,7 @@
 	"supports": {
 		"html": false
 	},
-	"textdomain": "sc-scroll-animations",
+	"textdomain": "stcr-scroll-animations",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",

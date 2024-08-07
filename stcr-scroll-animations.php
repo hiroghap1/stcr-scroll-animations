@@ -29,14 +29,19 @@ function stcr_scroll_animations_block_init() {
 }
 add_action( 'init', 'stcr_scroll_animations_block_init' );
 
-//function enqueue_custom_options_script()
-//{
-//    wp_enqueue_script(
-//        'sc-scroll-animations-script',
-//        plugin_dir_url(__FILE__) . 'dist/sc-scroll-animations.js',
-//        array(), // 依存関係があれば指定
-//        null, // バージョン番号を指定しない
-//        true // true に設定すると </body> タグの前にスクリプトが挿入される
+function enqueue_all_blocks_animations_assets() {
+    wp_enqueue_script(
+        'stcr-scroll-animations-view',
+        plugins_url( 'build/view.js', __FILE__ ),
+        array(),
+        '0.1.0',
+        true
+    );
+//    wp_enqueue_style(
+//        'stcr-scroll-animations-style',
+//        plugins_url( 'build/style.css', __FILE__ ),
+//        array(),
+//        '0.1.0'
 //    );
-//}
-//add_action('enqueue_block_assets', 'enqueue_custom_options_script');
+}
+add_action( 'wp_enqueue_scripts', 'enqueue_all_blocks_animations_assets' );

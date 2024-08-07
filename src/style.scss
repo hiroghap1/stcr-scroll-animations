@@ -10,3 +10,92 @@
 	color: #fff;
 	padding: 2px;
 }
+
+[data-stcr-animation-type] {
+	opacity: 0;
+	animation-fill-mode: forwards;
+}
+
+@keyframes stcr-fadeIn {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+@keyframes stcr-bounce {
+	from, 20%, 53%, 80%, to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	40%, 43% {
+		transform: translateY(-30px);
+	}
+	70% {
+		transform: translateY(-15px);
+	}
+	90% {
+		transform: translateY(-4px);
+	}
+}
+
+@keyframes stcr-glide {
+	from { opacity: 1; transform: translateX(-100%); }
+	to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes stcr-spin {
+	from { opacity: 1; transform: rotate(0deg); }
+	to { opacity: 1; transform: rotate(360deg); }
+}
+
+@keyframes stcr-float {
+	from { opacity: 1; transform: translateY(0); }
+	to { opacity: 1; transform: translateY(-20px); }
+}
+
+@keyframes stcr-zoom {
+	from { opacity: 1; transform: scale(0.5); }
+	to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes stcr-flip {
+	from { opacity: 1; transform: rotateY(0deg); }
+	to { opacity: 1; transform: rotateY(180deg); }
+}
+
+@keyframes stcr-slide {
+	from { opacity: 1; transform: translateY(100%); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
+.stcr-fadeIn.stcr-animated {
+	animation-name: stcr-fadeIn;
+	animation-duration: 1s;
+}
+.stcr-bounce.stcr-animated {
+	animation-name: stcr-bounce;
+	animation-duration: 1s;
+}
+.stcr-glide.stcr-animated {
+	animation-name: stcr-glide;
+	animation-duration: 1s;
+}
+.stcr-spin.stcr-animated {
+	animation-name: stcr-spin;
+	animation-duration: 1s;
+}
+.stcr-float.stcr-animated {
+	animation-name: stcr-float;
+	animation-duration: 1s;
+}
+.stcr-zoom.stcr-animated {
+	animation-name: stcr-zoom;
+	animation-duration: 1s;
+}
+.stcr-flip.stcr-animated {
+	animation-name: stcr-flip;
+	animation-duration: 1s;
+}
+.stcr-slide.stcr-animated {
+	animation-name: stcr-slide;
+	animation-duration: 1s;
+}
